@@ -9,9 +9,9 @@ const config = {
 
 const langData = {
     "en_US": {
-        "balance.userNoData": "𝚄𝚜𝚎𝚛 𝚗𝚘𝚝 𝚏𝚘𝚞𝚗𝚍/𝚗𝚘𝚝 𝚛𝚎𝚊𝚍𝚢.",
-        "balance.selfNoData": "𝚈𝚘𝚞𝚛 𝚍𝚊𝚝𝚊 𝚒𝚜 𝚗𝚘𝚝 𝚛𝚎𝚊𝚍𝚢.",
-        "balance.result": "\n━━━『𝙔𝙤𝙪𝙧 𝘽𝙖𝙡𝙖𝙣𝙘𝙚』━━━\n ₱{money}"
+        "balance.userNoData": "User not found/not ready",
+        "balance.selfNoData": "Your data is not ready",
+        "balance.result": "Balance: {money}XC"
     },
     "vi_VN": {
         "balance.userNoData": "Người dùng không tìm thấy/chưa sẵn sàng",
@@ -25,30 +25,31 @@ const langData = {
     }
 }
 
-async function onCall({ message, getLang }) {
+/** @type {TOnCallCommand} */
+function onCall({ message, balance, getLang, xDB }) {
     const { type, mentions } = message;
-    const { Users } = global.controllers;
+
     let userBalance;
     if (type == "message_reply") {
         const { senderID: TSenderID } = message.messageReply;
 
-        userBalance = await Users.getMoney(TSenderID);
-        if (!userBalance) return message.reply(getLang("balance.userNoData"));
+        userBalance = balance.from(TSenderID);
+        if (userBalance == null) return message.reply(getLang("balance.userNoData"));
     } else if (Object.keys(mentions).length >= 1) {
         let msg = "";
 
         for (const TSenderID in mentions) {
-            userBalance = await Users.getMoney(TSenderID);
-            msg += `${mentions[TSenderID].replace(/@/g, '')}: $${global.addCommas(userBalance || 0)}.\n`;
+            userBalance = balance.from(TSenderID);
+            msg += `${mentions[TSenderID].replace(/@/g, '')}: ${global.addCommas(userBalance?.get() ?? 0)}XC\n`;
         }
 
         return message.reply(msg);
     } else {
-        userBalance = await Users.getMoney(message.senderID);
-        if (!userBalance) return message.reply(getLang("balance.selfNoData"));
+        userBalance = balance.from(message.senderID);
+        if (userBalance == null) return message.reply(getLang("balance.selfNoData"));
     }
 
-    message.reply(getLang("balance.result", { money: global.addCommas(userBalance) }));
+    message.reply(getLang("balance.result", { money: global.utils.addCommas(userBalance.get()) }));
 }
 
 export default {
