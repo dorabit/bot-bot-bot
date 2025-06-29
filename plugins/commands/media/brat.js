@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-    name: 'brat',
+    name: 'طفل',
     aliases: [],
     version: '1.0',
     permissions: [0],
@@ -14,8 +14,8 @@ const config = {
 
 const lang = {
     "en_US": {
-        "noText": "provide text.\n\nexample: brat hello | video/image",
-        "invalidOption": "choose video or image",
+        "noText": "ادخل نصا.\n\nexample: مرحبا بالطفل المدلل  | video/image",
+        "invalidOption": "اختار صورة او فيديو",
         "error": "An error occurred."
     }
 };

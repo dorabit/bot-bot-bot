@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-    name: 'screenshot',
+    name: 'اسكرين',
     aliases: ["ss"],
     version: '1.0',
     permissions: [2],
@@ -14,7 +14,7 @@ const config = {
 
 const lang = {
     "en_US": {
-        "noUrl": "provide url",
+        "noUrl": "هات رابط الموقع",
         "error": "error"
     },
     "vi_VN": {

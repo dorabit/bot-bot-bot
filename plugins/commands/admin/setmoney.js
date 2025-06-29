@@ -1,5 +1,5 @@
 const config = {
-    name: "setmoney",
+    name: "اموال",
     aliases: ["setbalance", "setbal"],
     permissions: [2],
     description: "Set money of a user",
@@ -24,8 +24,16 @@ const langData = {
         "setmoney.success": "Thành công",
         "setmoney.failed": "Thất bại"
     }
-}
+    "ar_SY":{
+        "setmoney.noTarget": "قم بالرد على رسالة أو الإشارة إلى شخص ما، أو استخدم 'me' لتعيين مالك الخاص",
+        "setmoney.invalidAmount": "المبلغ غير صالح",
+        "setmoney.userNoData": "المستخدم غير موجود/غير جاهز",
+        "setmoney.onlyOneMention": "يمكنك الإشارة إلى شخص واحد فقط",
+        "setmoney.success": "تم",
+        "setmoney.failed": "فشل" 
+    } 
 
+} 
 async function onCall({ message, args, getLang }) {
     const { type, mentions } = message;
     if (type !== "message_reply" && Object.keys(mentions).length === 0 && args[0] !== "me") return message.reply(getLang("setmoney.noTarget"));

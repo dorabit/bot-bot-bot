@@ -1,10 +1,10 @@
 const config = {
-    name: "report",
+    name: "ريبوت",
     aliases: ["callad"],
     description: "report to mods",
     usage: "[text/attachment/reply]",
     cooldown: 3,
-    permissions: [0, 1, 2],
+    permissions: [2],
     credits: "XaviaTeam"
 }
 

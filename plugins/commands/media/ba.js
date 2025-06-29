@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-  name: 'blue-archive',
+  name: 'بلو',
   aliases: ["ba"]
 };
 

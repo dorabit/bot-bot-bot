@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "font",
+  name: "خطوط",
   description: "generate stylized text",
   usage: "text | style",
   cooldown: 3,

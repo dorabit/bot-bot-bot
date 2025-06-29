@@ -1,5 +1,5 @@
 const config = {
-    name: "balance",
+    name: "رصيد",
     aliases: ["bal", "money"],
     description: "Check user's/self money",
     usage: "<reply/tag/none>",

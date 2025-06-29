@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "lyrics",
+  name: "كلمات",
   aliases: ["ly"],
   description: "Get song lyrics",
   usage: "song name",

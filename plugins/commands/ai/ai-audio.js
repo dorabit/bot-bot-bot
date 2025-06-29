@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "ai-audio",
+  name: "صوت_الزكاء",
   aliases: ["talk-audio", "openai"],
   description: "n",
   usage: "[query]",

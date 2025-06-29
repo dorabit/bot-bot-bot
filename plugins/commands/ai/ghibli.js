@@ -14,7 +14,7 @@ const getStreamFromURL = async (url) => {
 };
 
 export const config = {
-  name: "ghibli",
+  name: "جبلي",
   version: "1.0",
   credits: "Duke Agustin",
   cooldown: 20,

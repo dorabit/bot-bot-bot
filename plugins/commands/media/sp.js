@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "spotify",
+  name: "اغنية",
   aliases: ["sp", "music", "song", "sing"],
   description: "",
   usage: "[song name]",

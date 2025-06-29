@@ -1,7 +1,7 @@
 import a from "axios";
 
 const config = {
-  name: "search",
+  name: "بحث",
   aliases: ["duckduckgo", "ddg"],
   permissions: [0],
   cooldown: 5,

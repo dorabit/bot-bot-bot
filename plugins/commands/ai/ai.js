@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "ai",
+  name: "جي",
   aliases: ["ask", "aria"],
   permissions: [0],
   usage: "[question]",

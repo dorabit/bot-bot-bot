@@ -1,5 +1,5 @@
 const config = {
-    name: "data",
+    name: "بيانات",
     permissions: [2],
     credits: "XaviaTeam",
     isAbsolute: true

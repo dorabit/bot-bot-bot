@@ -1,5 +1,5 @@
 const config = {
-    name: "tagall",
+    name: "الجميع",
     aliases: ["all", "everyone"],
     permissions: [1, 2],
     description: "Menion all members in group",

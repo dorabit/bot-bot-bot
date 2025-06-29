@@ -1,5 +1,5 @@
 const config = {
-    name: "run",
+    name: "تشغيل",
     aliases: ["eval", "execute", "exec"],
     permissions: [2],
     description: "Run bot scripts",

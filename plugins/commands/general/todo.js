@@ -1,5 +1,5 @@
 const config = {
-    name: "todo",
+    name: "مهام",
     description: "List of things to do",
     usage: "[add|remove|list] [todo|index]",
     cooldown: 3,

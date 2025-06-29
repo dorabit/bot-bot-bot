@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "apipost",
+  name: "تحليل-بوست",
   aliases: ["testpost", "postapi"],
   description: "Test API endpoints with POST method",
   usage: "[API_URL] | [payload] | [headers]",

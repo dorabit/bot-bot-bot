@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "nglspam",
+  name: "مهمل",
   description: "spam message using ngl username ",
   usage: "username | message | interval | amount",
   cooldown: 5,
@@ -11,10 +11,10 @@ const config = {
 
 async function onCall({ message, args }) {
   const query = args.join(" ");
-  if (!query.includes("|")) return message.reply("Usage: username | message | interval | amount");
+  if (!query.includes("|")) return message.reply("Usage: اسم المستخدم | الرساله | فاصلة | المبلغ");
   
   const parts = query.split("|").map(s => s.trim());
-  if (parts.length < 2) return message.reply("Invalid format. Use: username | message | interval | amount");
+  if (parts.length < 2) return message.reply("Invalid format. Use: اسم المستخدم | الرساله | فاصلة | المبلغ");
 
   const username = parts[0];
   const msg = parts[1];

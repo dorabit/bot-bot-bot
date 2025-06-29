@@ -1,5 +1,5 @@
 const config = {
-    name: "nino",
+    name: "نينو", 
     version: "1.1.0",
     description: "talk with nino",
     usage: "[text]",

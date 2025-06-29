@@ -3,7 +3,7 @@ import axios from 'axios';
 import { join } from 'path';
 
 const config = {
-  name: "hen",
+  name: "جدادة",
   aliases: ["egg"],
   description: "Buy hens, collect eggs, and sell your hens",
   usage: "<buy/check/collect/sell>",

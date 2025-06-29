@@ -1,5 +1,5 @@
 const config = {
-    name: "streak",
+    name: "خط",
     description: "Day counting...",
     usage: "[start/set/relapse/stop]",
     cooldown: 5,

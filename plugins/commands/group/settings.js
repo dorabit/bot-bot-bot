@@ -1,10 +1,10 @@
 const config = {
-    name: "settings",
+    name: "اعدادات", 
     aliases: ["setting"],
     description: "Settings for better group management, i changed the permission because of spam.",
     usage: "",
     cooldown: 3,
-    permissions: [2],
+    permissions: [2,1],
     credits: "XaviaTeam",
 };
 

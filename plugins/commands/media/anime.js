@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-  name: 'anime'
+  name: 'انمي', 
 };
 
 async function onCall({ message }) {

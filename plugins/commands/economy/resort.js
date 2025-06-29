@@ -3,7 +3,7 @@ import axios from 'axios';
 import { join } from 'path';
 
 const config = {
-  name: "resort",
+  name: "مانجا",
   aliases: [],
   description: "Manage your resort.",
   usage: "",
@@ -12,14 +12,13 @@ const config = {
 };
 
 const langData = {
-  "en_US": {
-    "resort.noResort": "𝚈𝚘𝚞 𝚍𝚘𝚗'𝚝 𝚑𝚊𝚟𝚎 𝚊 𝚛𝚎𝚜𝚘𝚛𝚝. 𝚄𝚜𝚎 `𝚛𝚎𝚜𝚘𝚛𝚝 𝚋𝚞𝚢` 𝚝𝚘 𝚐𝚎𝚝 𝚘𝚗𝚎.",
-    "resort.buySuccess": "𝙲𝚘𝚗𝚐𝚛𝚊𝚝𝚞𝚕𝚊𝚝𝚒𝚘𝚗𝚜! 𝚈𝚘𝚞'𝚟𝚎 𝚙𝚞𝚛𝚌𝚑𝚊𝚜𝚎𝚍 𝚊 𝚛𝚎𝚜𝚘𝚛𝚝 𝚗𝚊𝚖𝚎𝚍 {resortName}!",
-    "resort.buyFailure": "𝚈𝚘𝚞 𝚍𝚘𝚗'𝚝 𝚑𝚊𝚟𝚎 𝚎𝚗𝚘𝚞𝚐𝚑 𝚌𝚛𝚎𝚍𝚒𝚝𝚜 𝚝𝚘 𝚋𝚞𝚢 𝚊 𝚛𝚎𝚜𝚘𝚛𝚝.",
-    "resort.menuOptions": "◦❭❯❱【𝐑𝐄𝐒𝐎𝐑𝐓 𝐌𝐄𝐍𝐔】❰❮❬◦\n\n𝖶𝖾𝗅𝖼𝗈𝗆𝖾 𝗍𝗈 𝗍𝗁𝖾 𝖢𝖺𝗌𝗂𝗇𝗈 𝖱𝖾𝗌𝗈𝗋𝗍 𝖬𝖺𝗇𝖺𝗀𝖾𝗆𝖾𝗇𝗍 𝖲𝗒𝗌𝗍𝖾𝗆! 🌴\n\n𝖦𝖾𝗍 𝗋𝖾𝖺𝖽𝗒 𝗍𝗈 𝖼𝗋𝖾𝖺𝗍𝖾 𝖺𝗇𝖽 𝗆𝖺𝗇𝖺𝗀𝖾 𝗒𝗈𝗎𝗋 𝖽𝗋𝖾𝖺𝗆 𝗋𝖾𝗌𝗈𝗋𝗍.\n\n𝖢𝗁𝗈𝗈𝗌𝖾 𝖺𝗇 𝗈𝗉𝗍𝗂𝗈𝗇:\n• `𝘳𝘦𝘴𝘰𝘳𝘵 𝘣𝘶𝘺 <𝗇𝖺𝗆𝖾>` » 𝖯𝗎𝗋𝖼𝗁𝖺𝗌𝖾 𝖺 𝗇𝖾𝗐 𝗋𝖾𝗌𝗈𝗋𝗍.\n• `𝘳𝘦𝘴𝘰𝘳𝘵 𝘤𝘩𝘦𝘤𝘬` » 𝖢𝗁𝖾𝖼𝗄 𝗍𝗁𝖾 𝗌𝗍𝖺𝗍𝗎𝗌 𝗈𝖿 𝗒𝗈𝗎𝗋 𝗋𝖾𝗌𝗈𝗋𝗍.\n• `𝘳𝘦𝘴𝘰𝘳𝘵 𝘤𝘭𝘦𝘢𝘯` » 𝖢𝗅𝖾𝖺𝗇 𝗒𝗈𝗎𝗋 𝗋𝖾𝗌𝗈𝗋𝗍.\n• `𝘳𝘦𝘴𝘰𝘳𝘵 𝘶𝘱𝘨𝘳𝘢𝘥𝘦` » 𝖴𝗉𝗀𝗋𝖺𝖽𝖾 𝗒𝗈𝗎𝗋 𝗋𝖾𝗌𝗈𝗋𝗍.\n• `𝘳𝘦𝘴𝘰𝘳𝘵 𝘤𝘰𝘭𝘭𝘦𝘤𝘵` » 𝖢𝗈𝗅𝗅𝖾𝖼𝗍 𝗏𝖺𝗅𝗎𝖾 𝖿𝗋𝗈𝗆 𝗒𝗈𝗎𝗋 𝗋𝖾𝗌𝗈𝗋𝗍.\n𝟨. `𝘳𝘦𝘴𝘰𝘳𝘵 𝘳𝘦𝘯𝘢𝘮𝘦 <𝗇𝖾𝗐𝖭𝖺𝗆𝖾>` » 𝖱𝖾𝗇𝖺𝗆𝖾 𝗒𝗈𝗎𝗋 𝗋𝖾𝗌𝗈𝗋𝗍."
-    // Add more translations if needed
-  },
-  // Add translations for other languages if needed
+const langData = {
+  "ar_SY": {
+    "resort.noResort": "ليس لديك منتجع. استخدم `resort buy` للحصول على واحد.",
+    "resort.buySuccess": "مبروك! لقد اشتريت منتجعًا اسمه {resortName}!",
+    "resort.buyFailure": "ليس لديك ما يكفي من الائتمان لشراء منتجع.",
+    "resort.menuOptions": "◦❭❯❱【قائمة المنتجع】❰❮❬◦\n\nمرحبًا بك في نظام إدارة منتجع الكازينو! 🌴\n\nاستعد لإنشاء وإدارة منتجع أحلامك.\n\nاختر خيارًا:\n• `resort buy <الاسم>` » شراء منتجع جديد.\n• `resort check` » التحقق من حالة منتجعك.\n• `resort clean` » تنظيف منتجعك.\n• `resort upgrade` » ترقية منتجعك.\n• `resort collect` » تحصيل القيمة من منتجعك.\n• `resort rename <الاسم الجديد>` » إعادة تسمية منتجعك."
+  }
 };
 
 const resortImages = [

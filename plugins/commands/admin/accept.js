@@ -1,7 +1,7 @@
 import moment from "moment-timezone";
 
 const config = {
-  name: "accept",
+  name: "فريند", 
   version: "1.0.0",
   credits: "BLACK",
   permissions: [2],

@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const cachePath = path.resolve(__dirname, '../cache');
 
 const config = {
-    name: "poli",
+    name: "تخيل",
     version: "1.0.0",
     permissions: 0,
     credits: "@jm",
@@ -26,7 +26,7 @@ async function onCall({ message, args, data }) {
     }
 
     const prompt = args.join(" ");
-    message.reply("⏳ Generating...");
+    message.reply("⏳ يتم انشاء صورتك...");
 
     try {
         const response = await axios.get(`https://rapido.zetsu.xyz/api/pollinations?prompt=${encodeURIComponent(prompt)}`, {

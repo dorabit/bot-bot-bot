@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const cacheDir = './plugins/commands/cache';
 
 const config = {
-    name: 'restore',
+    name: 'استعادة',
     version: '1.0.0',
     permissions: 0,
     credits: 'emil',
@@ -19,7 +19,7 @@ const config = {
 
 const langData = {
     "en_US": {
-        "notAReply": "Please reply to the image to restore.",
+        "notAReply": "رد على الصورة التي تريد استعادتها.",
         "notAPhoto": "This is not a photo.",
         "processingError": "An error occurred while processing the image.",
         "executionError": "An error occurred while executing the command.",

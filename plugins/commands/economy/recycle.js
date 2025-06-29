@@ -15,7 +15,7 @@ function getRandomValue(min, max) {
 }
 
 const config = {
-  name: "collect",
+  name: "جمع",
   aliases: ["c", "gather"],
   description: "Collect recyclable materials and earn coins.",
   usage: "<text>",

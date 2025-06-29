@@ -1,5 +1,5 @@
 const config = {
-    name: "setleave",
+    name: "وداع",
     description: "set leave message/gif",
     usage: "[text/reply/help]",
     cooldown: 3,

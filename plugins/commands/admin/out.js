@@ -1,5 +1,5 @@
 const config = {
-    name: "out",
+    name: "غادر",
     aliases: ["leave"],
     description: "Leave the group/all groups, please note that the out all will not include the message request/spam group",
     usage: "[groupID/all]",

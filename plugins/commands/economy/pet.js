@@ -3,7 +3,7 @@ import axios from 'axios';
 import { join } from 'path';
 
 const config = {
-  name: "pet",
+  name: "حيوان",
   aliases: ["animal"],
   description: "Buy, feed, and sell your virtual pet",
   usage: "<buy/feed/check/sell>",
@@ -12,56 +12,18 @@ const config = {
 };
 
 const langData = {
-  "en_US": {
-    "pet.buySuccess": "⌜🎊⌟ : \n—  Congratulations, you've adopted a new pet named {petName}! ",
-    "pet.buyFailure": "⌜🤦🏻‍♂️⌟ : \n—  You already have a pet. Take care of it!",
-    "pet.feedSuccess": "⌜🍖⌟ : \n—  You fed {petName}. It looks happier now! 💕",
-    "pet.feedCost": "⌜💰⌟ : \n— Feeding {petName} costs ${feedCost}.",
-    "pet.feedFailure": "⌜🙅🏻‍♂️⌟ : \n— You can't feed a pet you don't own.",
-    "pet.noPet": "⌜🤷🏻‍♂️⌟ : \n— You don't have a pet. Use `pet buy` to get one.",
-    "pet.checkInfo": "⌜💁🏻‍♂️⌟ : \n— Your pet {petName} has grown worth ${petValue}💰. Don't forget to feed it.",
-    "pet.sellSuccess": "⌜💰⌟ : \n— You sold {petName} for ${amount}. Goodbye, little friend!",
-    "pet.sellFailure": "⌜🙅🏻‍♂️⌟ : \n—  You can't sell a pet.",
+  "ar_SY": {
+    "pet.buySuccess": "⌜🎊⌟ : \n— مبروك، لقد تبنيت حيوانًا أليفًا جديدًا اسمه {petName}!",
+    "pet.buyFailure": "⌜🤦🏻‍♂️⌟ : \n— لديك بالفعل حيوان أليف. اعتن به!",
+    "pet.feedSuccess": "⌜🍖⌟ : \n— لقد أطعمْت {petName}. يبدو أكثر سعادة الآن! 💕",
+    "pet.feedCost": "⌜💰⌟ : \n— تكلفة إطعام {petName} هي ${feedCost}.",
+    "pet.feedFailure": "⌜🙅🏻‍♂️⌟ : \n— لا يمكنك إطعام حيوان أليف لا تملكه.",
+    "pet.noPet": "⌜🤷🏻‍♂️⌟ : \n— ليس لديك حيوان أليف. استخدم `pet buy` للحصول على واحد.",
+    "pet.checkInfo": "⌜💁🏻‍♂️⌟ : \n— حيوانك الأليف {petName} نما وقيمته ${petValue}💰. لا تنسى إطعامه.",
+    "pet.sellSuccess": "⌜💰⌟ : \n— لقد بعت {petName} مقابل ${amount}. وداعًا، صديقي الصغير!",
+    "pet.sellFailure": "⌜🙅🏻‍♂️⌟ : \n— لا يمكنك بيع حيوان أليف.",
   }
 };
-
-let petOwners = new Map();
-const GROWTH_INTERVAL = 2 * 60 * 60 * 1000; // Slower growth interval (2 hours)
-const PATH = join(global.assetsPath, 'pet_owners.json');
-
-function loadPetOwners() {
-  try {
-    const data = fs.readFileSync(PATH, 'utf8');
-    petOwners = new Map(JSON.parse(data));
-  } catch (err) {
-    console.error('Failed to load pet owners:', err);
-  }
-}
-
-function savePetOwners() {
-  try {
-    const data = JSON.stringify([...petOwners]);
-    fs.writeFileSync(PATH, data, 'utf8');
-  } catch (err) {
-    console.error('Failed to save pet owners:', err);
-  }
-}
-
-function updatePetGrowth() {
-  const currentTime = Date.now();
-  petOwners.forEach((pet, ownerID) => {
-    const growthPercentage = pet.growthFactor || 0.01;
-    const elapsedTime = currentTime - pet.lastFed;
-    const growthCycles = Math.floor(elapsedTime / GROWTH_INTERVAL);
-
-    if (growthCycles > 0) {
-      const newPetValue = Math.floor(pet.value * Math.pow(1 + growthPercentage, growthCycles));
-      pet.value = newPetValue;
-      pet.lastFed = currentTime;
-    }
-  });
-}
-
 loadPetOwners();
 
 async function onCall({ message, getLang, args }) {

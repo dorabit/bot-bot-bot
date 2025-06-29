@@ -1,5 +1,5 @@
 const config = {
-    name: "plugins",
+    name: "المكونات",
     aliases: ["pl", "plg", "plugin"],
     description: "Manage plugins",
     usage: "[reload]/[list]",
@@ -9,10 +9,10 @@ const config = {
 
 const langData = {
     "en_US": {
-        "result.reload": "Reloaded plugins, check console for more details",
+        "result.reload": "تمت اعادة تحميل المكونات.",
         "result.list": "Commands: {commands}\nEvents: {events}\nOnMessage: {onMessage}\nCustoms: {customs}",
         "invalid.query": "Invalid query!",
-        "error.unknow": "An error occurred, check console for more details"
+        "error.unknow": "حدث خطأ، تحقق من وحدة التحكم لمزيد من التفاصيلحدث خطأ، تحقق من وحدة التحكم لمزيد من التفاصيل"
     },
     "vi_VN": {
         "result.reload": "Đã tải lại toàn bộ plugin, kiểm tra console để biết thêm chi tiết",

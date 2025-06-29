@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "fbcover",
+  name: "غلاف", 
   description: "generate fb cover image",
   usage: "name | subname | sdt | address | email | color",
   cooldown: 5,

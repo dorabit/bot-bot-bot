@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-  name: "simteach",
+  name: "تعلم",
   version: "1.0.0"
 }
 

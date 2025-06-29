@@ -1,5 +1,5 @@
 const config = {
-    name: "setjoin",
+    name: "ترحيب",
     description: "set join message/gif",
     usage: "[text/reply/help]",
     cooldown: 3,

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-  name: "color-color",
+  name: "االوان,
   aliases: ["cc", "color"],
   description: "Play color-color game with betting.",
   usage: "[red/🔴] | [blue/🔵] | [yellow/🟡] [bet]",

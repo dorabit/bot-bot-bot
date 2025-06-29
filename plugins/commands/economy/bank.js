@@ -5,7 +5,7 @@ import Decimal from 'decimal.js';
 const PATH = join(global.assetsPath, 'bankOwner.json'); 
 
 const config = {
-  name: 'bank',
+  name: 'بنك',
   aliases: ["bk", "b", "banking"],
   description: 'Bank Online',
   usage: '<Use command to show menu>',
@@ -38,7 +38,21 @@ const langData = {
     "fail": "【 ℹ 】➜ Thất bại!",
     "no.money": "【 ℹ 】➜ Bạn không đủ tiền!",
     "menu": "【 ℹ 】Hướng Dẫn Sử Dụng 【 ℹ 】n1. Tạo tài khoản: register <tên>\n2. Rút tiền: withdraw <số tiền>\n3. Nạp tiền: deposit <số tiền>\n4. Đổi tên tài khoản: rename <tên mới>\n5. Thông tin tài khoản: check\n6. Xem người giàu nhất: top <số lượng>"
-  }
+  }, 
+ "ar_SY": {
+    "no.account": "【 】➜ ليس لديك حساب بعد!"، 
+    "have.account": "【 】➜ لديك حساب بالفعل!"، 
+    "error": "【 】➜ خطأ، يُرجى المحاولة مرة أخرى!"،
+    "no.name": "【 】➜ يُرجى إضافة اسم البنك الخاص بك."،
+    "success": "【 】➜ ناجح!"،
+    "fail": "【 】➜ فشل!"،
+    "loan.requested": "【 】➜ تم تقديم طلب قرض بقيمة {loanAmount} للموافقة عليه.", 
+    "loan.approved": "【 】➜ تمت الموافقة على طلب قرض بقيمة {bankName}."،
+    "loan.denied": "【 】➜ تم رفض طلب قرض بقيمة {bankName}."،
+    "loan.list": "━━【قوائم الطلبات】━━\n\n{userList}",
+    "no.money": "【 】➜ ليس لديك ما يكفي من المال!",
+    "menu": "【❰??? ??❱】\n— استمتع بتجربة مصرفية عصرية بلمسة من الرقي. كيف يمكنني مساعدتك اليوم في إدارة حسابك؟\n\n??? ???\n1. [register/r <bankName>] - تسجيل حساب مصرفي. \n2. [withdraw/w <amount>] - سحب الأموال. \n3. [deposit/d <amount>] - إيداع الأموال. \n4. [rename <newName>] - إعادة تسمية الحساب. ?n5. [check] - معلومات الحساب.\n6. [loan <amount>] - طلب قرض لرصيد مجاني \n7. [top <amount>] - عرض أغنى الحسابات 8. [منح <اسم البنك/معرف المُرسِل/الفهرس>] - منح طلب قرض. 9. [قائمة] - عرض طلبات القروض المُعلّقة. 10. [رفض <اسم البنك/الفهرس>] - رفض طلب قرض. 11. [يرجى تحديد الخدمة التي تحتاجها، وسيسعدني تقديم المزيد من المساعدة لك."
+  } 
 };
 
 async function onCall({ message, args, getLang, userPermissions }) {

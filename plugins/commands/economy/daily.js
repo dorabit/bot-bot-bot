@@ -1,7 +1,7 @@
 const _24HOURs = 26400000;
 import axios from 'axios'
 const config = {
-    name: "daily",
+    name: "يومية",
     aliases: ["claim"],
     description: "Claim daily reward",
     credits: "XaviaTeam",

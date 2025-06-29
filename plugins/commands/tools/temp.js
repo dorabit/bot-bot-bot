@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-  name: "tempmail",
+  name: "بريد",
   aliases: ["temp"],
   credits: "jm",
   description: "Get temporary email or check inbox",

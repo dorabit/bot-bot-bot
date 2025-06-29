@@ -1,5 +1,5 @@
 const config = {
-  name: "supportgc",
+  name: "الدعم",
   aliases: ["join","rgc"],
   description: "Join the support server",
   usage: "",

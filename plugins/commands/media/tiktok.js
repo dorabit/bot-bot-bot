@@ -3,7 +3,7 @@ import axios from "axios";
 import fs from "fs";
 
 const config = {
-    name: "tiktok",
+    name: "تيكتوك",
     aliases: ['tt', 'tiktokvideo'],
     version: "1.0.0",
     description: "Search and download TikTok videos",

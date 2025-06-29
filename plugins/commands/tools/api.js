@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  name: "apitest",
+  name: "تحليل", 
   aliases: ["testapi", "api"],
   description: "Test API endpoints with GET method",
   usage: "[API_URL]",

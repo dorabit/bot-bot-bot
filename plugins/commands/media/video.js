@@ -3,7 +3,7 @@ import axios from "axios";
 import fs from "fs";
 
 const config = {
-    name: "video",
+    name: "فيديو",
     aliases: ['play', 'yt2mp4'],
     version: "1.0.7",
     description: "Play video from YouTube",

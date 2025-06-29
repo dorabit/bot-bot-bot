@@ -1,6 +1,6 @@
 import axios from "axios";
 const config = {
-  name: "deepseek",
+  name: "ديبسكو",
   aliases: [],
   description: "",
   usage: "[query]",

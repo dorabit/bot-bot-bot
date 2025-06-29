@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const cachePath = path.resolve(__dirname, '../cache');
 
 const config = {
-    name: "flux",
+    name: "انشأ",
     version: "1.0.0",
     permissions: 0,
     credits: "chill, api ko lang",
@@ -22,11 +22,11 @@ async function onCall({ message, args, data }) {
     const prefix = data?.thread?.data?.prefix || global.config.PREFIX; // Get the prefix from thread data or global config
 
     if (args.length === 0) {
-        return message.reply(`Please provide a prompt for the image generation.\n\nExample: ${prefix}flux cat`);
+        return message.reply('اكتب موصفات صورتك (๑˙ー˙๑) .\n\nExample: ${prefix}flux cat`);
     }
 
     const prompt = args.join(" ");
-    message.reply("Generating image...");
+    message.reply("يتم انشاءصورتك...");
 
     try {
         const response = await axios.get(`https://rapido.zetsu.xyz/api/flux?prompt=${encodeURIComponent(prompt)}`, {

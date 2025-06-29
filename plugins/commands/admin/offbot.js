@@ -1,5 +1,5 @@
 const config = {
-    name: "offbot",
+    name: "ايقاف",
     aliases: ["turnoff", "shutdown"],
     permissions: [2],
     isAbsolute: true

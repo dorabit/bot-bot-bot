@@ -1,5 +1,5 @@
 const config = {
-    name: "join",
+    name: "ضيفني",
     aliases: [""],
     description: "Join a selected thread from the available threads.",
     usage: "[number]",

@@ -1,5 +1,5 @@
 const config = {
-  name: "top",
+  name: "القمة",
   aliases: ["top", "topam"],
   description: "Shows all the top users with highest money.",
   usage: "",

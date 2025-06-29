@@ -1,5 +1,5 @@
 const config = {
-    name: "send",
+    name: "تحويل", 
     aliases: ["pay"],
     credits: "XaviaTeam",
     description: "Send money to other user",

@@ -1,5 +1,5 @@
 const config = {
-    name: "delmsg",
+    name: "حذف_رسالة",
     aliases: ["deletemsg", "delmessage", "deletemessage"],
     description: "delete group message",
     usage: "[all]",

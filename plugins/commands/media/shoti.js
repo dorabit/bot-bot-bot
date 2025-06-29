@@ -3,7 +3,7 @@ import fs from 'fs';
 import path from 'path';
 
 const config = {
-    name: "eabab"
+    name: "شوتي"
 }
 
 async function onCall({ message }) {

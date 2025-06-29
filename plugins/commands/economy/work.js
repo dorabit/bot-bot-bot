@@ -5,7 +5,7 @@ const _1HOURS = 1 * 60 * 60 * 1000;
 const _30MINUTES = 30 * 60 * 1000;
 
 const config = {
-    name: "work",
+    name: "عمل",
     aliases: ["wk"],
     description: "Work to earn money",
     credits: "XaviaTeam",

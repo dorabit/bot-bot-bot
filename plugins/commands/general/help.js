@@ -1,5 +1,5 @@
 const config = {
-    name: "help",
+    name: "اوامر",
     _name: {
         "ar_SY": "الاوامر"
     },
@@ -58,7 +58,7 @@ const langData = {
             ⇒ الصلاحيات: {permissions}
             ⇒ فئة: {category}
             ⇒ وقت الانتظار: {cooldown}
-            ⇒ الاعتمادات: {credits}
+            ⇒ المطور : راكو سان 
         `,
         "0": "عضو",
         "1": "إدارة المجموعة",
@@ -93,7 +93,7 @@ async function onCall({ message, args, getLang, userPermissions, prefix }) {
         }
 
         let list = Object.keys(commands)
-            .map(category => `⌈ ${category.toUpperCase()} ⌋\n${commands[category].join(", ")}`)
+            .map(category => ` ✦ ❪ ${category.toUpperCase()} ❫ ✦\n\n${commands[category].join("  •  ")}`)
             .join("\n\n");
 
         message.reply(getLang("help.list", {

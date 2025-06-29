@@ -7,7 +7,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const cacheDir = './plugins/commands/cache';
 
 const config = {
-name: 'colorize',
+name: 'تلوين',
 version: '1.0.0',
 permissions: 0,
 credits: 'emil',

@@ -1,5 +1,5 @@
 const config = {
-    name: "user",
+    name: "مستخدم",
     description: "ban/unban a user",
     version: "0.0.1-beta",
     usage: "[tag/reply]",
@@ -20,7 +20,14 @@ const langData = {
         "noData": "No data available...",
         "success": "Success!",
         "error": "error"
+    }, 
+    "ar_SY": {
+        "missingTarget": "يرجى الإشارة إلى المستخدم أو الرد على رسالته لحظره.",
+        "noData": "لا توجد بيانات متاحة...",
+        "success": "تم بنجاح!",
+        "error": "خطأ"
     }
+
 }
 
 async function onCall({ message, args, getLang, data }) {

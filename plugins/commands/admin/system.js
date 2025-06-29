@@ -1,7 +1,7 @@
 import { cpu, time, cpuTemperature, currentLoad, memLayout, diskLayout, mem, osInfo }  from "systeminformation";
 
 const config = {
-	    name: "system",
+	    name: "نظام",
     description: "get system information",
     usage: "",
     cooldown: 3,
@@ -42,7 +42,7 @@ export async function onCall({ message, userPermissions }) {
 
 		for (const singleDisk of diskInfo) {
 			disk.push(
-				`==== 「 DISK ${i++} 」 ====\n` +
+				`==== 「 التخزين ${i++} 」 ====\n` +
 				"Name: " + singleDisk.name + "\n" +
 				"Type: " + singleDisk.interfaceType + "\n" + 
 				"Size: " + byte2mb(singleDisk.size) + "\n" +
@@ -50,14 +50,14 @@ export async function onCall({ message, userPermissions }) {
 			)
 		}
 		if (isGroupAdmin) return message.reply(
-			"====== System Info ======\n" +
+			"====== معلومات النظام ======\n" +
 			"==== 「 CPU 」 ====\n" +
 			"CPU Model: " + manufacturer + " " + brand + " " + speedMax + "GHz\n" +
 			"Cores: " + cores + "\n" +
 			"Threads: " + physicalCores + "\n" +
 			"Temperature: " + mainTemp + "°C\n" +
 			"Load: " + load + "%\n" +
-			"==== 「 MEMORY 」 ====\n" +
+			"==== 「 الذاكرة 」 ====\n" +
 			"Size: " + byte2mb(memInfo[0].size) +
 			"\nType: " + memInfo[0].type +
 			"\nTotal: " + byte2mb(totalMem) +

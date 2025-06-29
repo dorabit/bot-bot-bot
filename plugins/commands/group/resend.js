@@ -1,5 +1,5 @@
 const config = {
-    name: "resend",
+    name: "فضح",
     permissions: [1, 2],
     description: "Turn on/off resend message",
     usage: "[on/off]",

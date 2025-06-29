@@ -1,5 +1,5 @@
 const config = {
-    name: "kick",
+    name: "طرد",
     description: "kick user",
     usage: "[reply/@mention]",
     cooldown: 5,

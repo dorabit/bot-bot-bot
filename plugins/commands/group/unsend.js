@@ -1,5 +1,5 @@
 const config = {
-  name: "unsend",
+  name: "حذف",
   aliases: ["remove", "uns","unsent"],
   description: "Unsend bot's message",
   usage: "[reply]",

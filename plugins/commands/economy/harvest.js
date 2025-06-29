@@ -27,7 +27,7 @@ function getRandomValue(min, max) {
 }
 
 const config = {
-  name: "harvest",
+  name: "حصاد",
   aliases: ["h", "gather"],
   description: "Harvest vegetables and earn coins.",
   usage: "<text>",

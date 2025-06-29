@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-  name: "sim",
+  name: "سيم",
   credits:"renzmansueto"
 }
 const reply = async function({eventData, message}) {

@@ -3,6 +3,7 @@ import { writeFileSync } from 'fs';
 import { join } from 'path';
 
 const config = {
+    name:'رانك', 
     description: 'Get your global/local rank',
     usage: "[-g/-l] [@mention/reply]",
     credits: "XaviaTeam",

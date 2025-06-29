@@ -1,5 +1,5 @@
 const config = {
-    name: "threadnoti",
+    name: "اعلامات",
     permissions: [1, 2],
     description: "Turn on/off thread notification for yourself",
     usage: "[on/off]",

@@ -1,5 +1,5 @@
 const config = {
-    name: "adduser",
+    name: "اضف",
     aliases: ["add"],
     description: "Add user to group",
     usage: "[uid/profileUrl]",

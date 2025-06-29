@@ -8,7 +8,7 @@ const __dirname = path.dirname(__filename);
 const cachePath = path.resolve(__dirname, '../cache');
 
 const config = {
-    name: "stability",
+    name: "تخيل2",
     version: "1.0.0",
     permissions: 0,
     credits: "@jm",

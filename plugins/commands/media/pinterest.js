@@ -4,7 +4,7 @@ import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
 const config = {
-  name: 'pinterest',
+  name: 'صور',
   version: '1.0.0',
   credits: 'Joshua Sy (Converted by Dymyrius)',
   description: 'Image search',

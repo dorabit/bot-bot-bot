@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const config = {
-    name: 'edit',
+    name: 'عدل',
     version: '1.0',
     permissions: 0,
     credits: '@jm (rapido)',
