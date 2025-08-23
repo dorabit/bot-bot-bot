@@ -1,45 +1,49 @@
-// إيموجيات للفئات
-const categoryIcons = {
-    "settings": "⚙️",
-    "games": "🎮",
-    "info": "📚",
-    "admin": "👑",
-    "music": "🎵",
-    "tools": "🛠️",
-    "other": "✨"
-};
-
-async function onCall({ message, args, getLang, userPermissions, prefix }) {
-    const { commandsConfig } = global.plugins;
-    const commandName = args[0]?.toLowerCase();
-
-    if (!commandName) {
-        let commands = {};
-        const language = message?.thread?.data?.language || global.config.LANGUAGE || 'en_US';
-
-        for (const [key, value] of commandsConfig.entries()) {
-            if (!!value.isHidden) continue;
-            if (!!value.isAbsolute ? !global.config?.ABSOLUTES.includes(message.senderID) : false) continue;
-            if (!value.hasOwnProperty("permissions")) value.permissions = [0, 1, 2];
-            if (!value.permissions.some(p => userPermissions.includes(p))) continue;
-
-            if (!commands.hasOwnProperty(value.category)) commands[value.category] = [];
-            commands[value.category].push(`• ${value._name?.[language] || key}`);
-        }
-
-        let list = Object.keys(commands)
-            .map(category => {
-                const icon = categoryIcons[category.toLowerCase()] || "📌";
-                return `${icon} ${category.toUpperCase()}\n${commands[category].join("\n")}`;
-            })
-            .join("\n\n");
-
-        message.reply(getLang("help.list", {
-            total: Object.values(commands).map(e => e.length).reduce((a, b) => a + b, 0),
-            list,
-            syntax: prefix
-        }));
-    } else {
-        // باقي الكود نفسه (عرض تفاصيل الأمر)...
+module.exports = {
+  config: {
+    name: "help",
+    aliases: ["h", "اوامر"],
+    version: "1.0",
+    author: "حمودي سان",
+    countDown: 5,
+    role: 0,
+    shortDescription: "عرض جميع الأوامر",
+    longDescription: "إظهار قائمة الأوامر مع الشرح",
+    category: "general",
+    guide: {
+      en: "{p}help [اسم الأمر]"
     }
-}
+  },
+
+  onStart: async function ({ message, args, commands, prefix }) {
+    if (args[0]) {
+      const command = commands.get(args[0].toLowerCase());
+      if (!command)
+        return message.reply(`❌ ما فيش أمر اسمه: ${args[0]}`);
+
+      const guide = command.config.guide ? command.config.guide.en : "لا يوجد شرح";
+      return message.reply(
+        `📌 اسم الأمر: ${command.config.name}\n` +
+        `🔑 اختصارات: ${command.config.aliases?.join(", ") || "لا يوجد"}\n` +
+        `📂 التصنيف: ${command.config.category}\n` +
+        `📖 الوصف: ${command.config.longDescription}\n` +
+        `📚 الاستعمال: ${guide}`
+      );
+    }
+
+    let msg = "📜 قائمة الأوامر المتاحة:\n\n";
+    const categories = {};
+
+    for (const [name, command] of commands) {
+      const cat = command.config.category || "عام";
+      if (!categories[cat]) categories[cat] = [];
+      categories[cat].push(name);
+    }
+
+    for (const cat in categories) {
+      msg += `✨ ${cat}:\n${categories[cat].join(", ")}\n\n`;
+    }
+
+    msg += `استخدم: ${prefix}help [اسم الأمر] لعرض تفاصيل أكثر.`;
+    message.reply(msg);
+  }
+};
