@@ -22,8 +22,8 @@
     "ABSOLUTES": [
         "AB_UID"
     ],
-    "NAME": "NAME_OF_BOT",
-    "PREFIX": "PREFIX_HERE",
-    "timezone": "Asia/Manila",
+    "NAME": "Dora bot",
+    "PREFIX": "!"
+    ,"timezone": "Asia/Manila",
     "REFRESH": "43200000"
 }
