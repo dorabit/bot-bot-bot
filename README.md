@@ -1,28 +1,28 @@
+# 🍓 Dora Bot
 
-# XaviaBot  
-**v2.1.4** | **By**: RFS-ADRENO | **Modded by**: rapido  
+بوت ماسنجر (Facebook Messenger Bot) مبني على مكتبة  
+[`@xaviabot/fca-unofficial`](https://www.npmjs.com/package/@xaviabot/fca-unofficial)  
+ويحتوي على أوامر وتفاعلات ممتعة.
 
-🔗 **Sources**:  
-- [Original](https://github.com/XaviaTeam/XaviaBot)  
-- [Config](https://github.com/daikirapido/Xaviabot/blob/main/config/config.main.json)  
+---
 
-## Changes  
-✅ Fixed login  
-✅ Added commands  
+## 📌 معلومات المشروع
+- **الاسم:** Dora Bot  
+- **الإصدار:** 2.4.2  
+- **المطور:** حمودي سان 🇸🇩  
+- **الترخيص:** MIT  
 
-## Quick Config  
-```json
-{
-  "APPSTATE_PATH":"./appstate.json",
-  "PREFIX":"!",
-  "timezone":"Asia/Manila",
-  "FCA_OPTIONS":{
-    "forceLogin":true,
-    "userAgent":"Mozilla/5.0 (Linux; Android 9)..."
-  }
-}
-```
+---
 
-💡 Replace `!` with your prefix  
-💡 Use valid fbstate in appstate.json  
+## ⚙️ التثبيت والتشغيل
 
+```bash
+# استنسخ المشروع
+git clone https://github.com/XaviaTeam/XaviaBot.git
+cd XaviaBot
+
+# ثبّت الحزم
+npm install
+
+# شغّل البوت
+npm start
