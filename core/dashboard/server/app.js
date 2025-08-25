@@ -3,17 +3,15 @@ import path from 'path';
 import cors from 'cors';
 import helmet from 'helmet';
 import axios from 'axios';
-
 import rateLimit from 'express-rate-limit';
-
 import { readFileSync } from 'fs';
 
 const commands = [
-    "help",
-    "restart",
-    "shutdown",
-    "version"
-]
+    "مساعدة",
+    "إعادة_تشغيل",
+    "إيقاف",
+    "إصدار"
+];
 
 function startServer(serverAdminPassword) {
     const logger = global.modules.get('logger');
@@ -36,54 +34,58 @@ function startServer(serverAdminPassword) {
     });
 
     app.use((req, res, next) => {
-        if (req.headers['xva-access-token'] != serverAdminPassword) return res.status(401).send('Unauthorized');
+        if (req.headers['xva-access-token'] != serverAdminPassword) 
+            return res.status(401).send('غير مصرح بالدخول ❌');
         next();
     });
 
     app.get('/getConfig', (req, res) => {
         const config = global.config;
-        return res.status(200).json({ config });
+        return res.status(200).json({ الاعدادات: config });
     });
 
     app.put('/commands', (req, res) => {
         const { command } = req.body;
-        if (!command) return res.status(400).send('Bad Request');
-        if (!commands.includes(command)) return res.status(400).send('Bad Request');
+        if (!command) return res.status(400).send('طلب غير صالح ⚠️');
+        if (!commands.includes(command)) return res.status(400).send('أمر غير موجود ❌');
 
         let returnData = {};
         switch (command) {
-            case "help":
+            case "مساعدة":
                 returnData = {
-                    commands: commands
+                    الاوامر: commands
                 }
                 break;
-            case "restart":
+            case "إعادة_تشغيل":
                 global.restart();
                 returnData = {
-                    message: "Restarted"
+                    الرسالة: "🔄 تم إعادة تشغيل السيرفر بنجاح"
                 }
                 break;
-            case "shutdown":
+            case "إيقاف":
                 global.shutdown();
                 returnData = {
-                    message: "Shutdown"
+                    الرسالة: "🛑 تم إيقاف السيرفر"
                 }
                 break;
-            case "version":
+            case "إصدار":
                 returnData = {
-                    version: JSON.parse(readFileSync(path.resolve('package.json'))).version
+                    الاصدار: JSON.parse(readFileSync(path.resolve('package.json'))).version
                 }
                 break;
 
             default:
-                return res.status(400).send('Bad Request');
+                return res.status(400).send('طلب غير صالح ⚠️');
         }
 
         return res.status(200).json(returnData);
     });
 
     global.server = app.listen(port, '0.0.0.0', () => {
-        logger.system(getLang("build.start.serverStarted", { port, serverAdminPassword }));
+        logger.system(getLang("build.start.serverStarted", { 
+            port, 
+            serverAdminPassword 
+        }));
     });
 
     if (global.config.AUTO_PING_SERVER) {
