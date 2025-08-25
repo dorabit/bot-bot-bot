@@ -1,49 +1,27 @@
 module.exports = {
   config: {
     name: "help",
-    aliases: ["h", "اوامر"],
+    aliases: ["الاوامر", "مساعدة"],
     version: "1.0",
-    author: "حمودي سان",
-    countDown: 5,
+    author: "حمودي سان 🇸🇩",
     role: 0,
-    shortDescription: "عرض جميع الأوامر",
-    longDescription: "إظهار قائمة الأوامر مع الشرح",
-    category: "general",
-    guide: {
-      en: "{p}help [اسم الأمر]"
-    }
+    shortDescription: "عرض قائمة الأوامر",
+    longDescription: "إظهار جميع الأوامر المتاحة في البوت Dora",
+    category: "عام",
+    guide: "{p}help"
   },
 
-  onStart: async function ({ message, args, commands, prefix }) {
-    if (args[0]) {
-      const command = commands.get(args[0].toLowerCase());
-      if (!command)
-        return message.reply(`❌ ما فيش أمر اسمه: ${args[0]}`);
+  onStart: async function ({ api, event }) {
+    api.sendMessage(
+`📝 قائمة أوامر Dora:
 
-      const guide = command.config.guide ? command.config.guide.en : "لا يوجد شرح";
-      return message.reply(
-        `📌 اسم الأمر: ${command.config.name}\n` +
-        `🔑 اختصارات: ${command.config.aliases?.join(", ") || "لا يوجد"}\n` +
-        `📂 التصنيف: ${command.config.category}\n` +
-        `📖 الوصف: ${command.config.longDescription}\n` +
-        `📚 الاستعمال: ${guide}`
-      );
-    }
+• !نكتة — يرسل لك نكتة عشوائية 😂
+• !سؤال — لعبة أسئلة وأجوبة ❓
+• !صورة — يرسل صورة عشوائية 🖼️
+• !معلومات — حول البوت 👩‍💻
 
-    let msg = "📜 قائمة الأوامر المتاحة:\n\n";
-    const categories = {};
-
-    for (const [name, command] of commands) {
-      const cat = command.config.category || "عام";
-      if (!categories[cat]) categories[cat] = [];
-      categories[cat].push(name);
-    }
-
-    for (const cat in categories) {
-      msg += `✨ ${cat}:\n${categories[cat].join(", ")}\n\n`;
-    }
-
-    msg += `استخدم: ${prefix}help [اسم الأمر] لعرض تفاصيل أكثر.`;
-    message.reply(msg);
+— مع تحيات حمودي سان 🇸🇩`,
+      event.threadID
+    );
   }
 };
