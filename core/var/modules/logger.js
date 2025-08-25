@@ -1,24 +1,24 @@
-const logger = {
-    info: (message) => {
-        //Green for the tag, reset for the message
-        console.log(`\x1b[32m[INFO]\x1b[0m ${message}`);
-    },
-    warn: (message) => {
-        //Yellow for the tag, reset for the message
-        console.log(`\x1b[33m[WARN]\x1b[0m ${message}`);
-    },
-    error: (message) => {
-        //Red for the tag, reset for the message
-        console.log(`\x1b[31m[ERROR]\x1b[0m ${message}`);
-    },
-    system: (message) => {
-        //Blue for the tag, reset for the message
-        console.log(`\x1b[34m[SYSTEM]\x1b[0m ${message}`);
-    },
-    custom: (message, type, color = "\x1b[36m") => {
-        //Cyan color by default for the tag, reset for the message
-        console.log(`${color}[${type}]\x1b[0m ${message}`);
-    },
-};
+import chalk from "chalk";
+import lang from "../../../languages/ar.json" assert { type: "json" };
 
-export default logger;
+function time() {
+  return chalk.gray(`[${new Date().toLocaleTimeString("ar-EG")}]`);
+}
+
+export default {
+  system: (msg) => console.log(time(), chalk.cyan("SYSTEM:"), msg),
+  warn: (msg) => console.log(time(), chalk.yellow("تحذير:"), msg),
+  error: (msg) => console.log(time(), chalk.red("خطأ:"), msg),
+  success: (msg) => console.log(time(), chalk.green("نجاح:"), msg),
+  custom: (msg, type = "مخصص") => console.log(time(), chalk.magenta(`${type}:`), msg),
+
+  // ✅ أمثلة باستعمال ملف اللغة
+  nodeOld: () => console.log(time(), chalk.red(lang.node.oldVersion)),
+  nodeInstalling: () => console.log(time(), chalk.yellow(lang.node.installing)),
+  nodeInstallFailed: () => console.log(time(), chalk.red(lang.node.installFailed)),
+
+  updateCheck: () => console.log(time(), chalk.cyan(lang.update.checking)),
+  updateNone: () => console.log(time(), chalk.green(lang.update.none)),
+  updateNew: (v) => console.log(time(), chalk.yellow(lang.update.newVersion.replace("{version}", v))),
+  updateCurrent: (v) => console.log(time(), chalk.gray(lang.update.currentVersion.replace("{current}", v)))
+};
