@@ -13,7 +13,7 @@ const { isGlitch, isReplit, isGitHub } = environments;
 
 console.clear();
 
-// Install newer node version on some old Repls
+// ✅ تثبيت Node.js 16 في بعض بيئات Replit القديمة
 function upNodeReplit() {
     return new Promise(resolve => {
         execSync('npm i --save-dev node@16 && npm config set prefix=$(pwd)/node_modules/node && export PATH=$(pwd)/node_modules/node/bin:$PATH');
@@ -25,15 +25,16 @@ function upNodeReplit() {
     if (process.version.slice(1).split('.')[0] < 16) {
         if (isReplit) {
             try {
-                logger.warn("Installing Node.js v16 for Repl.it...");
+                logger.warn("🔄 جاري تثبيت Node.js v16 لبيئة Replit...");
                 await upNodeReplit();
-                if (process.version.slice(1).split('.')[0] < 16) throw new Error("Failed to install Node.js v16.");
+                if (process.version.slice(1).split('.')[0] < 16) throw new Error("فشل تثبيت Node.js v16.");
             } catch (err) {
+                logger.error("❌ خطأ أثناء محاولة تثبيت Node.js v16.");
                 logger.error(err);
                 process.exit(0);
             }
         }
-        logger.error("Xavia requires Node 16 or higher. Please update your version of Node.");
+        logger.error("⚠️ بوت Dora يحتاج Node.js v16 أو أحدث. الرجاء التحديث.");
         process.exit(0);
     }
 
@@ -48,39 +49,35 @@ function upNodeReplit() {
         }
 
         if (!existsSync(process.cwd() + '/watch.json') || !statSync(process.cwd() + '/watch.json').isFile()) {
-            logger.warn("Glitch environment detected. Creating watch.json...");
+            logger.warn("🌐 تم اكتشاف بيئة Glitch. يتم إنشاء ملف watch.json...");
             writeFileSync(process.cwd() + '/watch.json', JSON.stringify(WATCH_FILE, null, 2));
             execSync('refresh');
         }
     }
 
     if (isGitHub) {
-        logger.warn("Running on GitHub is not recommended.");
+        logger.warn("⚠️ تشغيل البوت على GitHub غير مستحسن.");
     }
 })();
 
-// End
-
-
-// CHECK UPDATE
+// 🟢 التحقق من وجود تحديثات
 async function checkUpdate() {
-    logger.custom("Checking for updates...", "UPDATE");
+    logger.custom("🔍 جاري التحقق من وجود تحديثات...", "تحديث");
     try {
         const res = await axios.get('https://raw.githubusercontent.com/XaviaTeam/XaviaBot/main/package.json');
 
         const { version } = res.data;
         const currentVersion = JSON.parse(readFileSync('./package.json')).version;
         if (semver.lt(currentVersion, version)) {
-            logger.warn(`New version available: ${version}`);
-            logger.warn(`Current version: ${currentVersion}`);
+            logger.warn(`📢 إصدار جديد متاح: ${version}`);
+            logger.warn(`📌 الإصدار الحالي: ${currentVersion}`);
         } else {
-            logger.custom("No updates available.", "UPDATE");
+            logger.custom("✅ لا توجد تحديثات متاحة حالياً.", "تحديث");
         }
     } catch (err) {
-        logger.error('Failed to check for updates.');
+        logger.error('❌ فشل التحقق من وجود تحديثات.');
     }
 }
-
 
 // Child handler
 const _1_MINUTE = 60000;
@@ -99,13 +96,13 @@ async function main() {
         handleRestartCount();
         if (code !== 0 && restartCount < 5) {
             console.log();
-            logger.error(`An error occurred with exit code ${code}`);
-            logger.warn("Restarting...");
+            logger.error(`❌ حدث خطأ، كود الخروج: ${code}`);
+            logger.warn("🔄 جاري إعادة تشغيل البوت...");
             await new Promise(resolve => setTimeout(resolve, 2000));
             main();
         } else {
             console.log();
-            logger.error("XaviaBot has stopped, press Ctrl + C to exit.");
+            logger.error("🛑 توقف بوت Dora. اضغط Ctrl + C للخروج.");
         }
     });
 };
@@ -118,4 +115,3 @@ function handleRestartCount() {
 }
 
 main();
-
