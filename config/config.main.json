@@ -16,5 +16,11 @@
   },
   "BOT_NAME": "Dora",
   "LANGUAGE": "ar",
-  "PREFIX": "!"
+  "PREFIX": "!",
+  "meta": {
+    "author": "Hamodi San 🇸🇩",
+    "license": "MIT",
+    "year": 2025,
+    "repository": "https://github.com/hamodisan/dora-bot"
+  }
 }
